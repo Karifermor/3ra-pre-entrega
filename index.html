@@ -11,12 +11,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@100&family=Noto+Serif&family=Pacifico&display=swap"
-        rel="stylesheet">
+        rel="stgit ylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Barlow:wght@100&family=Bebas+Neue&family=Noto+Serif&family=Pacifico&display=swap"
         rel="stylesheet">
+
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <title>KNITK APP</title>
     <!-- Boostrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -36,127 +38,63 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <h1>A test knitting call App</h1>
+
+  <!-- Barra de navegacion -->
+  <nav id="barraPrincipal" class="navbar navbar-expand-lg">
+   
+            <h1>KNITK</h1>
+            
+            <div id="barra"></div>
+            <div id="sesion"></div>
+
         
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        
-        <div class="collapse navbar-collapse" id="navbarNav">
+        <div id="navbarNav">
           <ul class="navbar-nav ml-auto">
-            <!-- <li class="nav-item">
-              <a class="nav-link" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Products</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
-            </li> -->
             <li class="nav-item">
               <a class="nav-link" data-toggle="collapse" href="#cartCollapse" aria-expanded="false" aria-controls="cartCollapse">
+
                 <i class="fa fa-shopping-cart"></i>
                 Cart
-                <span class="badge badge-pill badge-primary">0</span>
+                <span class="badge badge-pill badge-primary cart-badge">0</span>
               </a>
             </li>
           </ul>
         </div>
-      </nav>
+  </nav>
     
       <div class="collapse" id="cartCollapse">
         <div class="card card-body">
-          <ul class="list-group" id="lista-vacia">
-            <!-- <li class="list-group-item">Item 1 - $10</li>
-            <li class="list-group-item">Item 2 - $20</li>
-            <li class="list-group-item">Item 3 - $30</li> -->
+          <ul class="list-group" id="cartList">
+            <!-- <li class="list-group-item">Item 1</li>-->
           </ul>
-
-        
-          
-
         </div>
       </div>
 
-      
+<!-- Seccion Intro -->
     <section id="siteIntro">
         <div class="infoIntro">
-            <!-- <h1>A test knitting call App</h1> -->
-            <p>Test knitting is a process in which knitters receive an unpublished pattern from the designer to test out the instructions, finish the project before the due date, look for any errors and provide helpful feedback.</p>
-            <p>Search for a pattern or publish yours and find the best test knitters.</p>
+            <h1>KNITTING PATTERNS</h1>
+            <p>Grab your knitting needles and get ready to create a stunning garment that you'll be proud to wear for
+                years to come.</p>
             <div class="infoBtn">
-                <a href="#btnChoice"
+                <a href="#gall"
                     role="button" type="button" class="btn btn-dark">START NOW</a>
             </div>
         </div>
         <div class="introImg">
-            <img src="./images/img-needles.png" alt="person wearing the Guacamole vest in green" width="300">
+            <img src="./images/img-home.png" alt="person wearing the Guacamole vest in green" width="300">
         </div>
     </section>
 
-  
 
-
-    <div class="boxModel">
-        <h2>PATTERNS YOU MAY LIKE</h2>
-        <img class="patterns" src="./images/img-27.JPG"
-            alt="The Sugar sweater. A super sluffy and pink mohair sweater." width="400"> 
-        <img class="patterns" src="./images/img-29.JPG" alt="The viena vest with a lot of cables in white and mustard."
-            width="400">
-        <img class="patterns" src="./images/img-30.JPG" alt="The Musgo sweater in green" width="400">
+  <!-- Seccion de Porductos -->
+    <div id="gall">
+        <div class="boxModel">
+        </div>
     </div>
-
-
-    <form class="container infoBtn" id="btnChoice">
-      <!-- <h5>APPLY FOR A PATTERN</h5> -->
-      <input id="inputChoice" type="text" class="form-control"  placeholder="Enter a pattern name (sugar, viena or musgo)">
-      <div class="container-form">
-          <button id="submitBtn" type="submit" class="btn btn-dark">APPLY</button>
-      </div>
-
-  </form>
-
-
-    <!-- <div class = "boxModel">
-        <h2>OR SHOP MORE PATTERNS</h2>
-        <div class="card-group">
-            <div class="card">
-              <img src="./images/img-27.JPG" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Sugar sweater</h5>
-                <p class="card-text"><small class="text-muted">Skill: beginner</small></p>
-                <div class="container-form">
-                    <button id="submitBtn" type="submit" class="btn btn-dark">SHOP NOW</button>
-                </div>
-              </div>
-            </div>
-            <div class="card">
-              <img src="./images/img-29.JPG" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Viena vest</h5>
-                <p class="card-text"><small class="text-muted">Skill: advanced</small></p>
-                <div class="container-form">
-                    <button id="submitBtn" type="submit" class="btn btn-dark">SHOP NOW</button>
-                </div>
-              </div>
-            </div>
-            <div class="card">
-              <img src="./images/img-30.JPG" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Musgo sweater</h5>
-                <p class="card-text"><small class="text-muted">Skill: intermediate</small></p>
-                <div class="container-form">
-                    <button id="submitBtn" type="submit" class="btn btn-dark">SHOP NOW</button>
-                </div>
-              </div>
-            </div>
-          </div>
-    </div> -->
-
-    
-
-    
+        
+  
+    <!-- Formulario para iniciar sesion -->
     <form class="container" id="formulario">
         <h5>CONTACT INFO</h5>
         <label for="Nombre y Apellido"></label>
@@ -195,6 +133,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
     <script src="./app.js"></script>
 </body>

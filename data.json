@@ -1,0 +1,11 @@
+[
+    {"imagen": "./images/img-1.jpg", "name": "SUGAR SWEATER", "price": 5.99, "id": 1},
+    {"imagen": "./images/img-2.jpg", "name": "VIENA VEST", "price": 5.99, "id": 2},
+    {"imagen": "./images/img-3.jpg", "name": "MUSGO SWEATER", "price": 5.99, "id": 3},
+    {"imagen": "./images/img-4.jpg", "name": "TUCCI SWEATER", "price": 5.99, "id": 4},
+    {"imagen": "./images/img-5.jpg", "name": "EVA SWEATER", "price": 5.99, "id": 5},
+    {"imagen": "./images/img-6.jpg", "name": "MUSTARD VEST", "price": 5.99, "id": 6},
+    {"imagen": "./images/img-7.jpg", "name": "GUACAMOLE VEST", "price": 5.99, "id": 7}
+]
+
+

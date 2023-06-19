@@ -202,8 +202,12 @@ h2 {
   text-align: center;
   padding: 5px;
   justify-content: center;
-  background-color: #ededed;
-  background-image: linear-gradient(180deg, #ededed 0%, #f3f3f3 100%);
+  /* background-color: #ededed;
+  background-image: linear-gradient(180deg, #ededed 0%, #f3f3f3 100%); */
+    background-color: #FF9A8B;
+    background-image: linear-gradient(90deg, #FF9A8B 0%, #FF6A88 55%, #FF99AC 100%);
+
+  
   /* margin-top: 20px; */
 }
 .foot img:hover {
@@ -218,7 +222,6 @@ h2 {
 .foot .copy-right {
   margin-top: 15px;
   font-size: small;
-  color: grey;
 }
 
 /* MEDIA QUERIES */
@@ -251,4 +254,86 @@ h2 {
 
 .container {
   margin: 20px;
+}
+
+
+
+.boxModel {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.productCard {
+  flex: 0 0 400px;
+  margin: 5px;
+  width: 100%;
+  
+}
+
+/* .productImage {
+  width: 100%;
+} */
+
+
+#gall{
+  text-align: center;
+}
+
+.prodTitle{
+  /* color: grey; */
+  font-size: medium;
+  font-family: 'Rajdhani', sans-serif;
+
+}
+
+
+.prodPrice{
+    color: grey;
+
+}
+
+#barraPrincipal{
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cart-badge {
+  background-color: black;
+}
+
+.login-link {
+  background-color: black;
+  border-color: black;
+}
+
+.login-link:hover {
+  filter: drop-shadow(2px 4px 6px grey);
+}
+
+
+.login-link {
+  background-color: black;
+  border-color: black;
+  color: white; 
+  transition: filter 0.3s; 
+}
+
+.login-link:hover {
+  filter: drop-shadow(2px 4px 6px rgb(97, 97, 97)); 
+  color: white; 
+  background-color: black;
+  border-color: black;
+
+}
+
+.login-link:active {
+  background-color: black; 
+  filter: drop-shadow(2px 4px 6px grey);
+  background-color: black;
+  border-color: black;
+}
+
+.navbar {
+  background-color: white;
 }

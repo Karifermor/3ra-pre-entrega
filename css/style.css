@@ -113,6 +113,11 @@ div.boxModel {
     text-align: center;
     position: relative;
     margin: 10px;
+
+    /* flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px;
+    display: flex; */
 }
 .formulario {
     margin-bottom: 30px;
@@ -191,3 +196,6 @@ div.boxModel {
 .btn-shop {
     margin: 10px;
 }
+
+
+  
