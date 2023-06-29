@@ -1,11 +1,11 @@
 [
-    {"imagen": "./images/img-1.jpg", "name": "SUGAR SWEATER", "price": 5.99, "id": 1},
-    {"imagen": "./images/img-2.jpg", "name": "VIENA VEST", "price": 5.99, "id": 2},
-    {"imagen": "./images/img-3.jpg", "name": "MUSGO SWEATER", "price": 5.99, "id": 3},
-    {"imagen": "./images/img-4.jpg", "name": "TUCCI SWEATER", "price": 5.99, "id": 4},
-    {"imagen": "./images/img-5.jpg", "name": "EVA SWEATER", "price": 5.99, "id": 5},
-    {"imagen": "./images/img-6.jpg", "name": "MUSTARD VEST", "price": 5.99, "id": 6},
-    {"imagen": "./images/img-7.jpg", "name": "GUACAMOLE VEST", "price": 5.99, "id": 7}
+    {"imagen": "./images/img-1.JPG", "name": "SUGAR SWEATER", "price": 5.99, "id": 1, "type": "Sweater"},
+    {"imagen": "./images/img-2.JPG", "name": "VIENA VEST", "price": 5.99, "id": 2, "type": "Vest"},
+    {"imagen": "./images/img-3.JPG", "name": "MUSGO SWEATER", "price": 5.99, "id": 3, "type": "Sweater"},
+    {"imagen": "./images/img-4.JPG", "name": "TUCCI SWEATER", "price": 5.99, "id": 4, "type": "Sweater"},
+    {"imagen": "./images/img-5.JPG", "name": "EVA SWEATER", "price": 5.99, "id": 5, "type": "Sweater"},
+    {"imagen": "./images/img-6.jpg", "name": "MUSTARD VEST", "price": 5.99, "id": 6, "type": "Vest"},
+    {"imagen": "./images/img-7.JPG", "name": "GUACAMOLE VEST", "price": 5.99, "id": 7, "type": "Vest"},
+    {"imagen": "./images/img-8.JPG", "name": "BOYFRIEND CARDIGAN", "price": 5.99, "id": 8, "type": "Cardigan"},
+    {"imagen": "./images/img-9.jpg", "name": "PARIS COAT", "price": 5.99, "id": 8, "type": "Coat"}
 ]
-
-

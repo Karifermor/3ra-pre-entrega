@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -41,9 +40,16 @@
 
   <!-- Barra de navegacion -->
   <nav id="barraPrincipal" class="navbar navbar-expand-lg">
-   
-            <h1>KNITK</h1>
-            
+    
+            <a href="" onclick=location.href="index.html" style="text-decoration: none"><h1>KNITK</h1></a>
+            <select id="garmentType">
+                <option value="all">Filter</option>
+                <option value="all">All</option>
+                <option value="Sweater">Sweaters</option>
+                <option value="Vest">Vests</option>
+                <option value="Cardigan">Cardigans</option>
+                <option value="Coat">Coats</option>
+              </select>
             <div id="barra"></div>
             <div id="sesion"></div>
 
@@ -70,6 +76,10 @@
         </div>
       </div>
 
+
+  
+
+
 <!-- Seccion Intro -->
     <section id="siteIntro">
         <div class="infoIntro">
@@ -94,9 +104,9 @@
     </div>
         
   
-    <!-- Formulario para iniciar sesion -->
+     <!-- Formulario para iniciar sesion -->
     <form class="container" id="formulario">
-        <h5>CONTACT INFO</h5>
+        <h5>Log in</h5>
         <label for="Nombre y Apellido"></label>
         <input type="text" class="form-control" id="inputName" placeholder="Enter your name">
 
@@ -104,12 +114,32 @@
         <label for="Correo Electronico"></label>
         <input type="email" class="form-control" id="inputEmail" placeholder="Enter your Email">
 
-        <div id="btnForm" class="container-form">
-            <button type="submit" class="btn btn-dark">Submit</button>
+        <div class="container-form">
+            <button id="btnForm" type="submit" class="btn btn-dark">Submit</button>
         </div>
 
-    </form>
+    </form> 
 
+    <button onclick="topFunction()" id="myBtn" title="Go to top"><img src="./icons/goUpFlecha.png" class="btnUp"></button>
+
+<!-- Modal -->
+<!-- <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <p>Log in to make a purchase</p>
+      <div class="modal-buttons">
+        <button id="loginButton" class="btn btnmodal btn-lg">Ok</button>
+      </div>
+    </div>
+  </div> -->
+
+<!-- 
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <h5>Log in to make a purchase</h5>
+      <button id="loginButton" class="btn btnmodal btn-lg">OK</button>
+    </div>
+  </div> -->
+  
 
     <footer>
         <div class="foot">
@@ -137,5 +167,4 @@
 
     <script src="./app.js"></script>
 </body>
-
 </html>

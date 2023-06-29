@@ -1,18 +1,12 @@
-
-
-
 let cartArray = JSON.parse(localStorage.getItem("cartArray")) || [];
 
-
-// Load the cartArray from localStorage on page load
+// Carga los datos del cartArray desde el LocalStorage
 if (localStorage.getItem("cartArray")) {
   cartArray = JSON.parse(localStorage.getItem("cartArray"));
 }
 
 const carroStr = JSON.stringify(cartArray)
 localStorage.setItem("cartArray", carroStr)
-
-
 
 
 const listaVacia = document.querySelector("#cartList");
@@ -47,19 +41,6 @@ if (isLoggedIn) {
 
 sesion.appendChild(logInOut);
 
-//Borra la info de userData (nombre y correo) y deberia borrar el perfil (donde esta el nombre que se muestra en la barra)
-
-// logInOut.addEventListener("click", ()=>{
-//     console.log("hola que tal")
-//     const perfilVacio = ""
-//     localStorage.setItem("perfil", perfilVacio);
-//     localStorage.setItem("userData", perfilVacio);
-
-//     logInOut.innerHTML = "Log in";
-  
-//     barra.appendChild(perfilVacio);
-//   })
-
 logInOut.addEventListener("click", () => {
   localStorage.removeItem("userData");
   localStorage.removeItem("perfil");
@@ -70,32 +51,14 @@ logInOut.addEventListener("click", () => {
 
   logInOut.innerHTML = "Log in";
 
-  // Update the href property based on the user's login status
+  // Borra el href segun si esta logeado o no
   if (!isLoggedIn) {
     logInOut.href = "#formulario";
   } else {
     logInOut.removeAttribute("href");
+
   }
 });
-
-// logInOut.addEventListener("click", () => {
-//   localStorage.removeItem("userData");
-//   localStorage.removeItem("perfil");
-//   cartArray = [];
-//   inputName.value = "";
-//   barra.innerHTML = "";
-
-//   logInOut.innerHTML = "Log in";
-
-//   // Remove the cartArray from localStorage only when the user logs out
-//   if (!isLoggedIn) {
-//     localStorage.removeItem("cartArray");
-//   }
-// });
-
-
-////////////////////////////////////////
-
 
 formulario.addEventListener("submit", (e) => validarFormulario(e));
 btnForm.addEventListener("click", (e) => {
@@ -165,33 +128,15 @@ function validarFormulario(e) {
 }
   
 
-
-
 function borrarCarrito(itemName) {
   const itemIndex = cartArray.findIndex((item) => item.name === itemName);
   if (itemIndex !== -1) {
-    const item = cartArray[itemIndex];
-    if (item.quantity > 1) {
-      item.quantity--; // Si hay mas de 1 del mismo item, quita 1
-    } else {
-      cartArray.splice(itemIndex, 1); // Si la cantidad del producto en el carrito es 1, lo quita
-    }
+    cartArray.splice(itemIndex, 1);
     updateCart();
 
     localStorage.setItem("cartArray", JSON.stringify(cartArray));
-
-    // Swal.fire({
-    //   icon: "success",
-    //   title: "Item Removed",
-    //   text: `One item of "${item.name}" has been removed from your cart.`,
-    // });
   }
 }
-
-
-
-
-
 
 function updateCart() {
   listaVacia.innerHTML = "";
@@ -200,24 +145,73 @@ function updateCart() {
 
   cartArray.forEach((item) => {
     const itemName = item.name;
-    const itemQuantity = item.quantity;
+    let itemQuantity = item.quantity;
+
     const carritoListaNuevo = document.createElement("li");
     carritoListaNuevo.classList.add("list-group-item");
-    carritoListaNuevo.textContent = `${itemName} x ${itemQuantity}`;
 
+ 
+    const itemDetails = document.createElement("div");
+    itemDetails.classList.add("item-details");
+
+    const itemNameSpan = document.createElement("span");
+    itemNameSpan.classList.add("subTotal")
+    itemNameSpan.textContent = itemName;
+
+    // boton + 
+    const btnIncrement = document.createElement("button");
+    btnIncrement.classList.add("btnIncrement");
+    btnIncrement.textContent = "+";
+    btnIncrement.addEventListener("click", () => {
+
+      item.quantity++;
+      updateCart();
+    });
+
+    // boton -
+    const btnDecrement = document.createElement("button");
+    btnDecrement.classList.add("btnDecrement");
+    btnDecrement.textContent = "-";
+    btnDecrement.addEventListener("click", () => {
+
+      if (item.quantity > 1) {
+        item.quantity--;
+        updateCart();
+      }
+    });
+
+
+    const itemQuantitySpan = document.createElement("span");
+    itemQuantitySpan.classList.add("quantitiSpan")
+    itemQuantitySpan.textContent = ` x ${itemQuantity} `;
+
+    // Subtotal
     const itemPrice = document.createElement("span");
-    itemPrice.classList.add("float-right");
-    itemPrice.textContent = (getItemPrice(itemName) * itemQuantity).toFixed(2);
+    itemPrice.classList.add("float-right", "subTotal");
+    itemPrice.textContent = "US$" + (getItemPrice(itemName) * itemQuantity).toFixed(2);
 
     const btnBorrar = document.createElement("button");
-    btnBorrar.classList.add("btn", "btn-danger", "btn-sm", "float-right");
-    btnBorrar.textContent = "Delete";
+    btnBorrar.classList.add("btn", "btn-sm", "float-right");
+
+    // icon delete
+    const deleteIcon = document.createElement("img");
+    deleteIcon.classList.add("btnDelete");
+    deleteIcon.src = "./icons/Deleteboton.png";
+
+    btnBorrar.appendChild(deleteIcon);
+
     btnBorrar.addEventListener("click", () => {
       borrarCarrito(itemName);
     });
 
+    itemDetails.appendChild(itemNameSpan);
+    itemDetails.appendChild(btnDecrement);
+    itemDetails.appendChild(itemQuantitySpan);
+    itemDetails.appendChild(btnIncrement);
+    itemDetails.appendChild(btnBorrar)
+
+    carritoListaNuevo.appendChild(itemDetails);
     carritoListaNuevo.appendChild(itemPrice);
-    carritoListaNuevo.appendChild(btnBorrar);
     listaVacia.appendChild(carritoListaNuevo);
 
     totalPrice += getItemPrice(itemName) * itemQuantity;
@@ -242,8 +236,6 @@ function updateCart() {
 }
 
 
-
-
 function getItemPrice(itemName) {
   const product = products.find((prod) => prod.name === itemName);
   return product ? product.price : 0;
@@ -265,10 +257,9 @@ if (!document.querySelector("#cartCollapse .card button")) {
 }
 
 confirmPurchaseBtn.addEventListener("click", confirmPurchase);
-
 const aceptar = document.querySelector("#cartCollapse .card");
 aceptar.appendChild(confirmPurchaseBtn);
-// confirmPurchaseBtn.style.display = "none";
+
 
 
 function confirmPurchase() {
@@ -279,14 +270,13 @@ function confirmPurchase() {
   Swal.fire({
     icon: 'success',
     title: 'Thak you for your purchase',
-    text: `The pattern will be sent to your email! ${userData.email}!`,
+    text: `The pattern/s will be sent to your email! ${userData.email}!`,
     showConfirmButton: false,
     timer: 2000
   });
 
   cartArray = [];
   updateCart(); 
-  // confirmPurchaseBtn.style.display = "none";
 
     // Borro el cartArray del localStorage luego de que se confirme la compra
     localStorage.removeItem("cartArray");
@@ -299,6 +289,58 @@ let products = [];
 async function obtenerProductos() {
   const respuesta = await fetch("./data.json");
   products = await respuesta.json();
+
+const garmentTypeSelect = document.querySelector("#garmentType");
+
+    garmentTypeSelect.addEventListener("change", () => {
+      const selectedType = garmentTypeSelect.value;
+      filterItemsByType(selectedType);
+    });
+  
+    function filterItemsByType(type) {
+      let filteredItems;
+    
+      if (type === "all") {
+        filteredItems = products;
+      } else {
+        // Muestra los productos segun el tipo seleccionado
+        filteredItems = products.filter((item) => {
+          return item.type === type;
+        });
+      }
+    
+      // para filtrar los items
+      displayItems(filteredItems);
+    }
+    
+  
+    function displayItems(items) {
+      galeria.innerHTML = ""; // limpia la galeria
+
+    items.forEach((prod) => {
+      let card = document.createElement('div');
+      card.classList.add("productCard");
+      card.innerHTML = `
+        <img class="patterns" src="${prod.imagen}" alt="..." width="400">
+        <h4 class="prodTitle">${prod.name}</h4>
+        <h6 class="prodPrice">US$ ${prod.price}</h6>
+        <a href="#" class="btnComprar btn btn-dark">SHOP</a>
+      `;
+      galeria.append(card);
+
+      const btnComprar = card.querySelector(".btnComprar");
+      btnComprar.addEventListener("click", (e) => {
+        e.preventDefault();
+        const productName = prod.name; 
+        agregarAlcarrito(productName);
+        agregado(productName); 
+        
+      });
+      
+    });
+    
+  }
+  
 
   const galeria = document.querySelector(".boxModel");
   products.forEach((prod) => {
@@ -365,21 +407,12 @@ async function obtenerProductos() {
     const contar = document.querySelector("#navbarNav .badge");
     contar.textContent = cartArray.length;
 
-  
-    // Mostrar o no el mensaje "Your cart is empty"
-    // const emptyCartMessage = document.querySelector("h6");
-    // if (cartArray.length > 0) {
-    //   emptyCartMessage.style.display = "none";
-    // } else {
-    //   emptyCartMessage.style.display = "block";
-    // }
-
  localStorage.setItem("cartArray", JSON.stringify(cartArray));
 }
   
 updateCart();
   
-     //alerta de confirmacion de toastify
+
   function agregado(productName) { 
     Toastify({
         text: productName + " added to your cart ✨🧶",
@@ -390,5 +423,23 @@ updateCart();
         }).showToast();
   }
   
-  obtenerProductos();
+
   
+let mybutton = document.getElementById("myBtn");
+
+//Boton para subir si detecta scroll
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// scroll
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}

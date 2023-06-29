@@ -35,50 +35,13 @@
   filter: drop-shadow(2px 4px 6px pink);
 }
 #siteIntro .introImg img {
-  width: 90%;
+  width: 70%;
   height: auto;
   margin: 20px;
   border-radius: 4px;
 }
 #siteIntro .introImg img:hover {
   transform: rotate(10deg);
-}
-
-main #grid-galeria {
-  display: grid;
-  gap: 5px;
-  /*   width: 100%; */
-  height: auto;
-  max-width: 900px;
-  grid-template-columns: repeat(2, 1fr);
-  margin: auto;
-  padding: 10px;
-  width: 90%;
-}
-main #grid-galeria img {
-  width: 100%;
-  height: 0 auto;
-}
-main #grid-galeria img:hover {
-  filter: drop-shadow(2px 4px 6px grey);
-}
-
-.imgGallery {
-  background-color: rgb(254, 254, 254);
-  text-align: center;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-.imgGallery p {
-  margin: 5px;
-}
-.imgGallery img {
-  margin-top: 5px;
-}
-.imgGallery img:hover {
-  filter: drop-shadow(2px 4px 6px grey);
 }
 
 .boxModel {
@@ -97,62 +60,27 @@ main #grid-galeria img:hover {
   margin: 10px;
 }
 
-.boxModel {
+/* .boxModel {
   background-color: rgb(254, 254, 254);
   text-align: center;
   position: relative;
   margin: 10px;
-}
-.boxModel video {
+} */
+/* .boxModel video {
   padding: 10px;
 }
 .boxModel video:hover {
   filter: drop-shadow(2px 4px 6px grey);
-}
+} */
 
-.div-contact {
+/* .div-contact {
   margin: 10px;
   align-items: center;
 }
 .div-contact .formulario {
   margin-bottom: 30px;
-}
+} */
 
-#about {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  /*     background-color: #FF9A8B; */
-  background-image: linear-gradient(90deg, #FF9A8B 0%, #FF6A88 55%, #FF99AC 100%);
-  font-family: sans-serif;
-  padding: 10px;
-  align-items: center;
-  justify-content: space-between;
-  margin: 20px 5px;
-  border-radius: 2px;
-}
-#about .infoIntro h1 {
-  color: white;
-}
-#about .infoIntro h5 {
-  animation-name: miEfecto;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-  animation-delay: 0;
-  animation-duration: 1s;
-}
-#about .introImg img {
-  width: 90%;
-  height: auto;
-  margin: 20px;
-  border-radius: 4px;
-}
-#about .top-content {
-  display: flex;
-}
-#about .boxAbout {
-  padding: 40px 40px;
-  position: relative;
-}
 
 /* variables */
 /* estilos generales */
@@ -202,10 +130,8 @@ h2 {
   text-align: center;
   padding: 5px;
   justify-content: center;
-  /* background-color: #ededed;
-  background-image: linear-gradient(180deg, #ededed 0%, #f3f3f3 100%); */
-    background-color: #FF9A8B;
-    background-image: linear-gradient(90deg, #FF9A8B 0%, #FF6A88 55%, #FF99AC 100%);
+  background-color: #FF9A8B;
+  background-image: linear-gradient(90deg, #FF9A8B 0%, #FF6A88 55%, #FF99AC 100%);
 
   
   /* margin-top: 20px; */
@@ -253,7 +179,8 @@ h2 {
 }
 
 .container {
-  margin: 20px;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 
@@ -271,17 +198,12 @@ h2 {
   
 }
 
-/* .productImage {
-  width: 100%;
-} */
-
 
 #gall{
   text-align: center;
 }
 
 .prodTitle{
-  /* color: grey; */
   font-size: medium;
   font-family: 'Rajdhani', sans-serif;
 
@@ -337,3 +259,123 @@ h2 {
 .navbar {
   background-color: white;
 }
+
+
+.btnIncrement{
+  color: white;
+  background-color: black;
+  border-radius: 8px;
+  width: 20px;
+
+}
+
+.btnDecrement {
+  color: white;
+  background-color: black;
+  border-radius: 8px;
+  width: 20px;
+  margin-left: 20px;
+}
+
+.btnDelete {
+  width: 20px;
+  height: 20px;
+}
+
+.subTotal{
+  font-size: small;
+}
+
+.quantitiSpan{
+  font-size: small;
+}
+
+
+#myBtn {
+  display: none; 
+  position: fixed; 
+  bottom: 20px; 
+  right: 30px; 
+  z-index: 99; 
+  border: none; 
+  outline: none; 
+  background-color: white; 
+  color: white; 
+  cursor: pointer; 
+  padding: 15px; 
+  border-radius: 10px; 
+  font-size: 18px; 
+  
+}
+
+#myBtn:hover {
+  background-color: white; 
+}
+
+.btnUp{
+  width: 20px;
+  height: 20px;
+}
+
+#garmentType{
+  background-color: #000000;
+  border: px solid #ddd;
+  color: #ffffff;
+  padding: 8px;
+  font-size: 14px;
+  width: 100px;
+  border-radius: 5px;
+}
+
+#garmentType option {
+  background-color: #f5f5f5;
+  color: #333;
+  font-size: 14px;
+}
+
+#garmentType option:hover {
+  background-color: #ddd;
+}
+
+
+/* .modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); 
+}
+
+.modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  max-width: 400px; 
+  margin: 0 auto; 
+}
+
+.modal-buttons {
+  margin-top: 20px;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+
+}
+
+
+.btnModal {
+  color: #fff;
+  background-color: #000;
+
+  cursor: pointer;
+} */
